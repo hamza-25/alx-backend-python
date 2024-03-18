@@ -4,7 +4,7 @@ import asyncio
 import random
 
 
-async def wait_random(max_delay: int = 10):
+async def wait_random(max_delay: int = 10) -> float:
     """func that print time after delay of time """
     time = random.uniform(0, max_delay)
     await asyncio.sleep(time)
