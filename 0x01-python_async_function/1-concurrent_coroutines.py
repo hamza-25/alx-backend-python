@@ -11,6 +11,6 @@ async def wait_n(n: int, max_delay: int) -> List[float]:
     delay_time: List[float] = []
     for i in range(n):
         time: float = await wait_random(max_delay)
-        await asyncio.sleep(time)
+        # await asyncio.sleep(time)
         delay_time.append(time)
     return sorted(delay_time)
