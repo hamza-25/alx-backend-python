@@ -58,12 +58,17 @@ class TestMemoize(unittest.TestCase):
         """memoize method that test call once a_property
         """
         class TestClass:
-
+            """Define Test Class
+            """
             def a_method(self):
+                """ method return 42
+                """
                 return 42
 
             @memoize
             def a_property(self):
+                """method return a method
+                """
                 return self.a_method()
 
         Test_obj = TestClass()
