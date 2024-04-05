@@ -52,10 +52,10 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """
+    """Define TestMemoize Class
     """
     def test_memoize(self):
-        """
+        """memoize method that test call once a_property
         """
         class TestClass:
 
