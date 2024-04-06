@@ -8,6 +8,7 @@ from utils import get_json
 from client import GithubOrgClient
 from typing import Dict
 from requests import HTTPError
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
