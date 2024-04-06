@@ -43,7 +43,7 @@ class TestGithubOrgClient(unittest.TestCase):
 
     @patch("client.get_json")
     def test_public_repos(self, mock_get_json: MagicMock) -> None:
-        """
+        """test_public_repos that check repo test
         """
         payload = {
             'repos_url': "https://api.github.com/users/google/repos",
