@@ -103,8 +103,8 @@ class TestGithubOrgClient(unittest.TestCase):
             mock_public_url.return_value = payload["repos_url"]
             self.assertEqual(GithubOrgClient("google").public_repos(),
                              [
-                    "episodes.dart",
-                    "kratu",
+                    "repo1",
+                    "repo1",
                 ],
                              )
             mock_public_url.assert_called_once()
