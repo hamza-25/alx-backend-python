@@ -41,6 +41,36 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(gith_repo,
                              "https://api.github.com/orgs/google/repos")
 
+    @patch("client.get_json")
+    def test_public_repos(self, mock_get_json: MagicMock) -> None:
+        """
+        """
+        payload = {
+            'repos_url': "https://api.github.com/users/google/repos",
+            'repos': [
+                {
+                    "id": 65257748,
+                    "name": "repo1",
+                },
+                {
+                    "id": 1126548,
+                    "name": "repo2",
+                },
+            ]
+        }
+        mock_get_json.return_value = payload["repos"]
+        with patch("client.GithubOrgClient._public_repos_url",
+                   new_callable=PropertyMock,) as mock_public_url:
+
+            mock_public_url.return_value = payload["repos_url"]
+            self.assertEqual(GithubOrgClient("google").public_repos(),
+                             [
+                    "repo1",
+                    "repo2",
+                ])
+            mock_public_url.assert_called_once()
+        mock_get_json.assert_called_once()
+
 
 if __name__ == "__main__":
     unittest.main()
