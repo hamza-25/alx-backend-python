@@ -104,7 +104,7 @@ class TestGithubOrgClient(unittest.TestCase):
             self.assertEqual(GithubOrgClient("google").public_repos(),
                              [
                     "repo1",
-                    "repo1",
+                    "repo2",
                 ],
                              )
             mock_public_url.assert_called_once()
